@@ -93,7 +93,7 @@ Function should print out information about available space in garage.
 Function should print out all vehicles' details.
 Output should be like this:
 ```
-Cars available In {location}:
+Cars available in {location}:
 1. {Color} {company} {model}, from {year}, max speed: {max_speed} km/h
 2. {Color} {company} {model}, from {year}, max capacity: {max_capacity} kg
 3. {Wheel_count}-wheels {color} {company} {model}, from {year}, max capacity: {max_capacity} kg
