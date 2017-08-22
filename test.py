@@ -54,17 +54,22 @@ class TestCheckpointExcersise(unittest.TestCase):
     def test_09_garage_initial_capacity(self):
         self.assertEqual(2, self.get_garage1().space_left())
 
-    def test_10_garage_space_usage_vehicle_fits(self):
+    def test_10_garage_type_error(self):
+        garage = self.get_garage1()
+        with self.assertRaises(TypeError, msg="Test dupy się nie powiódł ;("):
+            garage.add_car("dupa")
+
+    def test_11_garage_space_usage_vehicle_fits(self):
         garage = self.get_garage1()
         garage.add_car(self.get_sportcar())
         self.assertEqual(1, garage.space_left())
 
-    def test_11_garage_space_usage_vehicle_doesnt_fit(self):
+    def test_12_garage_space_usage_vehicle_doesnt_fit(self):
         garage = self.get_garage1()
         garage.add_car(self.get_truck())
         self.assertEqual(2, garage.space_left())
 
-    def test_12_garage_display_vehicles(self):
+    def test_13_garage_display_vehicles(self):
         expected_string = "Cars available in San Escobar:\n"\
                           "1. bloody red Lamborghini Diablo, from 2000, max speed: 320 km/h\n" \
                           "2. yellow GMC WTF1, from 2016, max capacity: 1500 kg\n" \

@@ -90,7 +90,7 @@ Parameters:
 Adds given car to the list of vehicles
 
 Parameters:
-* `car` - `Sportcar` or `Van` or `Truck` object
+* `car` - `Sportcar` or `Van` or `Truck` object. Raises TypeError when something else is added.
 
 Warning! Check available space before inserting car into given garage!
 
