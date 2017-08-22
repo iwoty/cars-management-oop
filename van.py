@@ -8,3 +8,7 @@ class Van(Vehicle):
         super().__init__(company, model, year, color)
         self.max_capacity = max_capacity
         self.size = 2
+
+    def display_info(self):
+        return '{} {} {}, from {}, max capacity: {} kg'.format(self.color, self.company,
+                                                               self.model, self.year, self.max_capacity)
