@@ -23,3 +23,6 @@ class Garage:
                 raise OverflowError('There is no space for that vehicle!')
         else:
             raise TypeError('You can add only a vehicle!')
+
+    def space_left(self):
+        return self.space - sum([vehicle.size for vehicle in self.vehicles_list])
