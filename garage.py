@@ -39,10 +39,10 @@ class Garage:
     def load_cars_from_csv(address, csv_path):
 
         with open(csv_path) as source:
-            vehicle_list = csv.DictReader(source, delimiter='	')
+            vehicle_list_csv = csv.DictReader(source, delimiter='	')
 
             space = 0
-            for vehicle in vehicle_list:
+            for vehicle in vehicle_list_csv:
                 if vehicle['type'] == 'sport':
                     space += 1
                 elif vehicle['type'] == 'van':
@@ -56,7 +56,7 @@ class Garage:
 
             new_garage = Garage(space, address)
 
-            for vehicle in vehicle_list:
+            for vehicle in vehicle_list_csv:
                 if vehicle['type'] == 'sport':
                     new_vehicle = Sportcar(vehicle['company'], vehicle['model'], vehicle['year'],
                                            vehicle['color'], vehicle['max_speed'])
