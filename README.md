@@ -1,5 +1,16 @@
 # Store your cars in OOP way!
+You'll implement classes that will help us manage company's car fleet.
 
+# Specification
+Below you'll find specifications of classes that you should implement in order to pass the tests. Have in mind that this specification does not contain implementation details. **It is your responsibility to decide which methods/variables should be static or where to use inheritance and etc.** Remember that you can implement more classes to make your code better.
+
+Specification is divided into two parts. Both parts are mandatory, but you have to implement them in given order.
+
+## General rules
+* do not modify cars.csv file because you might break the tests
+* you don't have to write docstrings during this assignment because time is short
+* even though you work alone please commit often and properly, make pushes after each part of the exercise
+* test your code often
 
 ## 1st part
 
