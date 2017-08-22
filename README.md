@@ -84,7 +84,7 @@ Parameters:
 Warning! Check available space before inserting car into given garage!
 
 ##### `space_left`
-Function should print out information about available space in garage.
+Function should return information about available space in garage.
 
 
 # 2nd part
