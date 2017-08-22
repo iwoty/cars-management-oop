@@ -24,6 +24,10 @@ class TestCheckpointExcersise(unittest.TestCase):
         from garage import Garage
         return Garage(6, "San Escobar")
 
+    def load_garage(self):
+        from garage import Garage
+        return Garage.load_cars_from_csv("Elk", "cars.csv")
+
     def test_01_sportcar_company(self):
         self.assertEqual("Lamborghini", self.get_sportcar().company)
 
@@ -99,6 +103,8 @@ class TestCheckpointExcersise(unittest.TestCase):
         with self.assertRaises(OverflowError, msg="This should not fit in here"):
             garage.add_car(self.get_truck())
 
+# 2nd part
+
     def test_22_garage_display_vehicles(self):
         expected_string = "Cars available in San Escobar:\n"\
                           "1. bloody red Lamborghini Diablo, from 2000, max speed: 320 km/h\n" \
@@ -112,6 +118,23 @@ class TestCheckpointExcersise(unittest.TestCase):
 
         actual = garage2.display_vehicles()
         self.assertEqual(actual, expected_string)
+
+    def test_23_load_cars_from_csv(self):
+        expected_string = "Cars available in Elk:\n"\
+                          "1. red Ferrari Diablo, from 2000, max speed: 350 km/h\n"\
+                          "2. 10-wheels blue Scania OMG3, from 2010, max capacity: 10000 kg\n"\
+                          "3. 8-wheels black Mercedes M45, from 1997, max capacity: 8000 kg\n"\
+                          "4. yellow GMC WTF1, from 2016, max capacity: 2000 kg\n"\
+                          "5. white Maserati Ghabi, from 2001, max speed: 299 km/h\n"
+
+        garage = self.load_garage()
+        actual_string = garage.display_vehicles()
+        self.assertEqual(actual_string, expected_string)
+
+    def test_24_load_cars_from_csv_space_left(self):
+        garage = self.load_garage()
+        self.assertEqual(0, garage.space_left(), msg="garage should be full")
+
 
 if __name__ == '__main__':
     unittest.main(module=__name__, buffer=True, exit=False, verbosity=2)

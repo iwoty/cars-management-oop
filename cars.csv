@@ -1,6 +1,6 @@
-type	company	model	year	color	max_speed	max_space	wheel_count
-sport	Ferrari	Diablo	2000	red	350		
+type	company	model	year	color	max_speed	max_capacity	wheel_count
+sport	Ferrari	Diablo	2000	red	350
 truck	Scania	OMG3	2010	blue		10000	10
 truck	Mercedes	M45	1997	black		8000	8
-van	GMC	WTF1	2016	yellow		2000	
-sport	Maserati	Ghabi	2001	white	299		
+van	GMC	WTF1	2016	yellow		2000
+sport	Maserati	Ghabi	2001	white	299

@@ -112,11 +112,11 @@ Cars available in {location}:
 
 ### `load_cars_from_csv`
 
-Create `load_cars_from_csv` method in `Garage` class. It should take 1 parameter:
+Create `load_cars_from_csv` method in `Garage` class. It should take 2 parameters:
 
+* `address` - garage's address
 * `csv_path` - path to CSV file
 
+This method should return `Garage object`. The space of garage is equal to the amount of cars in CSV file.
 
 First row in CSV file contains column headers
-
-Warning! Let's assume we can insert cars as long as there is enough space in garage
