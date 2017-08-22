@@ -13,27 +13,27 @@ class Garage:
     def __init__(self, space, address):
         self.space = space
         self.address = address
-        self.vehicles_list = []
+        self.vehicles = []
 
     def add_car(self, car):
         if isinstance(car, Vehicle):
             if (self.space - car.size) >= 0:
-                self.vehicles_list.append(car)
+                self.vehicles.append(car)
             else:
                 raise OverflowError('There is no space for that vehicle!')
         else:
             raise TypeError('You can add only a vehicle!')
 
     def space_left(self):
-        return self.space - sum([vehicle.size for vehicle in self.vehicles_list])
+        return self.space - sum([vehicle.size for vehicle in self.vehicles])
 
     def display_vehicles(self):
-        vehicles_list_str = ''
+        vehicles_str = ''
         i = 1
-        for vehicle in self.vehicles_list:
-            vehicles_list_str += '{}. {}\n'.format(i, vehicle.display_info())
+        for vehicle in self.vehicles:
+            vehicles_str += '{}. {}\n'.format(i, vehicle.display_info())
             i += 1
-        return 'Cars available in {}:\n{}'.format(self.address, vehicles_list_str)
+        return 'Cars available in {}:\n{}'.format(self.address, vehicles_str)
 
     @staticmethod
     def load_cars_from_csv(address, csv_path):
@@ -76,9 +76,9 @@ class Garage:
 
     def get_average_age(self):
         current_year = datetime.now().year
-        if self.vehicles_list:
-            age_of_vehicles = [current_year - int(vehicle.year) for vehicle in self.vehicles_list]
-            return sum(age_of_vehicles)/len(self.vehicles_list)
+        if self.vehicles:
+            age_of_vehicles = [current_year - int(vehicle.year) for vehicle in self.vehicles]
+            return sum(age_of_vehicles)/len(self.vehicles)
 
         else:
             return 0  # if a vehicle list is empty - average age is 0
