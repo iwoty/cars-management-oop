@@ -11,6 +11,7 @@ Specification is divided into two parts. Both parts are mandatory, but you have 
 * you don't have to write docstrings during this assignment because time is short
 * even though you work alone please commit often and properly, make pushes after each part of the exercise
 * test your code often
+* pay attention to csv file delimiter
 
 ## 1st part
 
