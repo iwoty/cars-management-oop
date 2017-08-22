@@ -135,6 +135,21 @@ class TestCheckpointExcersise(unittest.TestCase):
         garage = self.load_garage()
         self.assertEqual(0, garage.space_left(), msg="garage should be full")
 
+    def test_25_average_age(self):
+        garage2 = self.get_garage2()
+        garage2.add_car(self.get_sportcar())
+        garage2.add_car(self.get_van())
+
+        self.assertEqual(9, garage2.get_average_age())
+
+    def test_26_average_age_csv(self):
+        garage = self.load_garage()
+        self.assertEqual(12.2, garage.get_average_age())
+
+    def test_27_average_age_zero(self):
+        garage = self.get_garage1()
+        self.assertEqual(0, garage.get_average_age())
+
 
 if __name__ == '__main__':
     unittest.main(module=__name__, buffer=True, exit=False, verbosity=2)

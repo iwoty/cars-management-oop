@@ -29,7 +29,7 @@ Parameters:
 
 ##### `display_info`
 
-This function should __return__ full informations as a string in the following form:
+This method should __return__ full informations as a string in the following form:
 `{color} {company} {model}, from {year}, max speed: {max_speed} km/h`
 
 
@@ -49,7 +49,7 @@ Parameters:
 
 ##### `display_info`
 
-This function should __return__ full informations as a string in the following form:
+This method should __return__ full informations as a string in the following form:
 `{color} {company} {model}, from {year}, max capacity: {max_capacity} kg`
 
 
@@ -70,7 +70,7 @@ Parameters:
 
 ##### `display_info`
 
-This function should __return__ full informations as a string in the following form:
+This method should __return__ full informations as a string in the following form:
 `{wheel_count}-wheels {color} {company} {model}, from {year}, max capacity: {max_capacity} kg`
 
 
@@ -95,13 +95,13 @@ Parameters:
 Warning! Check available space before inserting car into given garage! If there is no space an `OverflowError` should be raised.
 
 ##### `space_left`
-Function should return information about available space in garage.
+Method should return information about available space in garage.
 
 
 # 2nd part
 
 ##### `display_vehicles`
-Function should print out all vehicles' details.
+Method should retrurn all vehicles' details.
 Output should be like this:
 ```
 Cars available in {location}:
@@ -110,8 +110,7 @@ Cars available in {location}:
 3. {Wheel_count}-wheels {color} {company} {model}, from {year}, max capacity: {max_capacity} kg
 ```
 
-### `load_cars_from_csv`
-
+#### `load_cars_from_csv`
 Create `load_cars_from_csv` method in `Garage` class. It should take 2 parameters:
 
 * `address` - garage's address
@@ -120,3 +119,6 @@ Create `load_cars_from_csv` method in `Garage` class. It should take 2 parameter
 This method should return `Garage object`. The space of garage is equal to the amount of cars in CSV file.
 
 First row in CSV file contains column headers
+
+#### `get_average_age`
+This method should return average age of cars in a garage.
