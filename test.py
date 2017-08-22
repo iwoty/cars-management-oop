@@ -1,59 +1,68 @@
 import unittest
 import sys
 
-from garage import Garage
-from sportcar import Sportcar
-from van import Van
-from truck import Truck
 
 class TestCheckpointExcersise(unittest.TestCase):
 
-    def setUp(self):
-        self.sportcar = Sportcar("Lamborghini", "Diablo", 2000, "bloody red", 320)
-        self.van = Van("GMC", "WTF1", 2016, "yellow", 1500)
-        self.truck = Truck("Mercedes", "M45", 1997, "black", 8000, 8)
+    def get_sportcar(self):
+        from sportcar import Sportcar
+        return Sportcar("Lamborghini", "Diablo", 2000, "bloody red", 320)
 
-        self.garage = Garage(2, "New York")
-        self.garage2 = Garage(6, "San Escobar")
+    def get_van(self):
+        from van import Van
+        return Van("GMC", "WTF1", 2016, "yellow", 1500)
 
+    def get_truck(self):
+        from truck import Truck
+        return Truck("Mercedes", "M45", 1997, "black", 8000, 8)
+
+    def get_garage1(self):
+        from garage import Garage
+        return Garage(2, "New York")
+
+    def get_garage2(self):
+        from garage import Garage
+        return Garage(6, "San Escobar")
 
     def test_sportcar_company(self):
-        self.assertEqual("Lamborghini", self.sportcar.company)
+        self.assertEqual("Lamborghini", self.get_sportcar().company)
 
     def test_sportcar_max_speed(self):
-        self.assertEqual(320, self.sportcar.max_speed)
+        self.assertEqual(320, self.get_sportcar().max_speed)
 
     def test_sportcar_displayed_info(self):
         msg = "bloody red Lamborghini Diablo, from 2000, max speed: 320 km/h"
-        self.assertEqual(self.sportcar.display_info(), msg)
+        self.assertEqual(self.get_sportcar().display_info(), msg)
 
     def test_van_model(self):
-        self.assertEqual("WTF1", self.van.model)
+        self.assertEqual("WTF1", self.get_van().model)
 
     def test_van_max_capacity(self):
-        self.assertEqual(1500, self.van.max_capacity)
+        self.assertEqual(1500, self.get_van().max_capacity)
 
     def test_van_displayed_info(self):
         msg = "yellow GMC WTF1, from 2016, max capacity: 1500 kg"
-        self.assertEqual(self.van.display_info(), msg)
+        self.assertEqual(self.get_van().display_info(), msg)
 
     def test_truck_displayed_info(self):
         msg = "8-wheels black Mercedes M45, from 1997, max capacity: 8000 kg"
-        self.assertEqual(self.truck.display_info(), msg)
+        self.assertEqual(self.get_truck().display_info(), msg)
 
     def test_garage_location(self):
-        self.assertEqual("New York", self.garage.address)
+        self.assertEqual("New York", self.get_garage1().address)
 
     def test_garage_initial_capacity(self):
-        self.assertEqual(2, self.garage.space_left())
+        self.assertEqual(2, self.get_garage1().space_left())
 
     def test_garage_space_usage_vehicle_fits(self):
-        self.garage.add_car(self.sportcar)
-        self.assertEqual(1, self.garage.space_left())
+        garage = self.get_garage1()
+        garage.add_car(self.get_sportcar())
+        self.assertEqual(1, garage.space_left())
 
     def test_garage_space_usage_vehicle_doesnt_fit(self):
-        self.garage.add_car(self.truck)
-        self.assertEqual(2, self.garage.space_left())
+        garage = self.get_garage1()
+        garage.add_car(self.get_truck())
+        self.assertEqual(2, garage.space_left())
 
     def test_garage_display_vehicles(self):
         expected_string = "Cars available in San Escobar:\n"\
@@ -61,11 +70,12 @@ class TestCheckpointExcersise(unittest.TestCase):
                           "2. yellow GMC WTF1, from 2016, max capacity: 1500 kg\n" \
                           "3. 8-wheels black Mercedes M45, from 1997, max capacity: 8000 kg\n"
 
-        self.garage2.add_car(self.sportcar)
-        self.garage2.add_car(self.van)
-        self.garage2.add_car(self.truck)
+        garage2 = self.get_garage2()
+        garage2.add_car(self.get_sportcar())
+        garage2.add_car(self.get_van())
+        garage2.add_car(self.get_truck())
 
-        actual = self.garage2.display_vehicles()
+        actual = garage2.display_vehicles()
         self.assertEqual(actual, expected_string)
 
 if __name__ == '__main__':
