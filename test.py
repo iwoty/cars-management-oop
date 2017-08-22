@@ -64,13 +64,18 @@ class TestCheckpointExcersise(unittest.TestCase):
         garage.add_car(self.get_sportcar())
         self.assertEqual(1, garage.space_left())
 
-    def test_12_garage_space_usage_vehicle_doesnt_fit(self):
+    def test_12_garage_space_two_vehicles(self):
+        garage2 = self.get_garage2()
+        garage2.add_car(self.get_truck())
+        garage2.add_car(self.get_truck())
+        self.assertEqual(0, garage2.space_left())
+
+    def test_13_garage_space_usage_vehicle_doesnt_fit(self):
         garage = self.get_garage1()
         with self.assertRaises(OverflowError, msg="This should not fit in here"):
             garage.add_car(self.get_truck())
 
-
-    def test_13_garage_display_vehicles(self):
+    def test_14_garage_display_vehicles(self):
         expected_string = "Cars available in San Escobar:\n"\
                           "1. bloody red Lamborghini Diablo, from 2000, max speed: 320 km/h\n" \
                           "2. yellow GMC WTF1, from 2016, max capacity: 1500 kg\n" \
