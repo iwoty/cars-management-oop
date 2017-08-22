@@ -26,3 +26,11 @@ class Garage:
 
     def space_left(self):
         return self.space - sum([vehicle.size for vehicle in self.vehicles_list])
+
+    def display_vehicles(self):
+        vehicles_list_str = ''
+        i = 1
+        for vehicle in self.vehicles_list:
+            vehicles_list_str += '{}. {}\n'.format(i, vehicle.display_info())
+            i += 1
+        return 'Cars available in {}:\n{}'.format(self.address, vehicles_list_str)
