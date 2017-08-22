@@ -59,15 +59,14 @@ class TestCheckpointExcersise(unittest.TestCase):
         expected_string = "Cars available in San Escobar:\n"\
                           "1. bloody red Lamborghini Diablo, from 2000, max speed: 320 km/h\n" \
                           "2. yellow GMC WTF1, from 2016, max capacity: 1500 kg\n" \
-                          "3. 8-wheels black Mercedes M45, from 1997, max capacity: 8000 kg"
+                          "3. 8-wheels black Mercedes M45, from 1997, max capacity: 8000 kg\n"
 
         self.garage2.add_car(self.sportcar)
         self.garage2.add_car(self.van)
         self.garage2.add_car(self.truck)
 
-        self.garage2.display_vehicles()
-        output = sys.stdout.getvalue().strip()
-        self.assertEqual(output, expected_string)
+        actual = self.garage2.display_vehicles()
+        self.assertEqual(actual, expected_string)
 
 if __name__ == '__main__':
     unittest.main(module=__name__, buffer=True, exit=False, verbosity=2)
