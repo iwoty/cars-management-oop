@@ -4,7 +4,7 @@
 ## 1st part
 
 ### `Sportcar` class
-Please note, that every car of `Sportcar` type has a `size` instance attribute equals to `1`!
+Please note, that every car of `Sportcar` type has a `size` attribute equal to `1`!
 
 
 ##### `__init__`
@@ -24,7 +24,7 @@ This function should __return__ full informations as a string in the following f
 
 
 ### `Van` class
-Please note, that every car of `Van` type has a `size` instance attribute equals to `2`!
+Please note, that every car of `Van` type has a `size` attribute equal to `2`!
 
 
 ##### `__init__`
@@ -44,7 +44,7 @@ This function should __return__ full informations as a string in the following f
 
 
 ### `Truck` class
-Please note, that every car of `Truck` type has a `size` instance attribute equals to `3`!
+Please note, that every car of `Truck` type has a `size` attribute equal to `3`!
 
 
 ##### `__init__`
