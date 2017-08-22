@@ -56,9 +56,9 @@ class TestCheckpointExcersise(unittest.TestCase):
         self.assertEqual(2, self.garage.space_left())
 
     def test_garage_display_vehicles(self):
-        expected_string = "Cars available in New York:\n"\
-                          "1. Bloody red Lamborghini Diablo, from 2000, max speed: 320 km/h\n" \
-                          "2. Yellow GMC WTF1, from 2016, max capacity: 1500 kg\n" \
+        expected_string = "Cars available in San Escobar:\n"\
+                          "1. bloody red Lamborghini Diablo, from 2000, max speed: 320 km/h\n" \
+                          "2. yellow GMC WTF1, from 2016, max capacity: 1500 kg\n" \
                           "3. 8-wheels black Mercedes M45, from 1997, max capacity: 8000 kg"
 
         self.garage2.add_car(self.sportcar)
@@ -70,4 +70,4 @@ class TestCheckpointExcersise(unittest.TestCase):
         self.assertEqual(output, expected_string)
 
 if __name__ == '__main__':
-    unittest.main(module=__name__, buffer=True, exit=False)
+    unittest.main(module=__name__, buffer=True, exit=False, verbosity=2)
