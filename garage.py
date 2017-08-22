@@ -73,3 +73,12 @@ class Garage:
                     new_garage.add_car(new_vehicle)
 
         return new_garage
+
+    def get_average_age(self):
+        current_year = datetime.now().year
+        if self.vehicles_list:
+            age_of_vehicles = [current_year - int(vehicle.year) for vehicle in self.vehicles_list]
+            return sum(age_of_vehicles)/len(self.vehicles_list)
+
+        else:
+            return 0  # if a vehicle list is empty - average age is 0
