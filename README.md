@@ -72,7 +72,7 @@ Please note, that every garage should have a `vehicles` instance attribute - a l
 
 Parameters:
 * `space` - integer, space available in garage for various vehicles
-* `addresses` - string, garage's address
+* `address` - string, garage's address
 
 
 ##### `add_car`
