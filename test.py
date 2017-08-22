@@ -66,8 +66,9 @@ class TestCheckpointExcersise(unittest.TestCase):
 
     def test_12_garage_space_usage_vehicle_doesnt_fit(self):
         garage = self.get_garage1()
-        garage.add_car(self.get_truck())
-        self.assertEqual(2, garage.space_left())
+        with self.assertRaises(OverflowError, msg="This should not fit in here"):
+            garage.add_car(self.get_truck())
+
 
     def test_13_garage_display_vehicles(self):
         expected_string = "Cars available in San Escobar:\n"\

@@ -92,7 +92,7 @@ Adds given car to the list of vehicles
 Parameters:
 * `car` - `Sportcar` or `Van` or `Truck` object. Raises TypeError when something else is added.
 
-Warning! Check available space before inserting car into given garage!
+Warning! Check available space before inserting car into given garage! If there is no space an `OverflowError` should be raised.
 
 ##### `space_left`
 Function should return information about available space in garage.
